@@ -9,26 +9,29 @@ public interface SubjectCategoryDomainService {
 
     /**
      * 新增分类
-     * @return
      */
     void add(SubjectCategoryBO subjectCategoryBO);
 
     /**
-     * 查询分类大类
-     * @return
+     * 查询岗位大类
      */
     List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO);
 
     /**
      * 更新分类
-     * @return
      */
     Boolean update(SubjectCategoryBO subjectCategoryBO);
 
     /**
      * 删除分类
-     * @return
      */
     Boolean delete(SubjectCategoryBO subjectCategoryBO);
+
+    /**
+     * 查询分类及标签
+     */
+//    List<SubjectCategoryBO> queryCategoryAndLabel(SubjectCategoryBO subjectCategoryBO);
+
+
 
 }

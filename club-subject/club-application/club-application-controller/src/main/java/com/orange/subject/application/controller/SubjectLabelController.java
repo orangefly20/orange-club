@@ -2,8 +2,8 @@ package com.orange.subject.application.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
-import com.orange.subject.application.convert.SubjectCategoryDTOConvert;
-import com.orange.subject.application.convert.SubjectLabelDTOConvert;
+import com.orange.subject.application.convert.SubjectCategoryDTOConverter;
+import com.orange.subject.application.convert.SubjectLabelDTOConverter;
 import com.orange.subject.application.dto.SubjectCategoryDTO;
 import com.orange.subject.application.dto.SubjectLabelDTO;
 import com.orange.subject.common.entity.Result;
@@ -46,7 +46,7 @@ public class SubjectLabelController {
             //入参校验
             Preconditions.checkNotNull(subjectLabelDTO.getLabelName(),"标签名称不能为空");
 
-            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConvert.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
             Boolean result = subjectLabelDomainService.add(subjectLabelBO);
             return Result.ok(result);
         } catch (Exception e) {
@@ -69,7 +69,7 @@ public class SubjectLabelController {
             //入参校验
             Preconditions.checkNotNull(subjectLabelDTO.getId(),"标签id不能为空");
 
-            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConvert.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
             Boolean result = subjectLabelDomainService.update(subjectLabelBO);
             return Result.ok(result);
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class SubjectLabelController {
             //入参校验
             Preconditions.checkNotNull(subjectLabelDTO.getId(),"标签id不能为空");
 
-            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConvert.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
             Boolean result = subjectLabelDomainService.delete(subjectLabelBO);
             return Result.ok(result);
         } catch (Exception e) {
@@ -117,9 +117,9 @@ public class SubjectLabelController {
             //入参校验
             Preconditions.checkNotNull(subjectLabelDTO.getCategoryId(),"分类id不能为空");
 
-            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConvert.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+            SubjectLabelBO subjectLabelBO= SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
             List<SubjectLabelBO> resultList = subjectLabelDomainService.queryLabelByCategoryId(subjectLabelBO);
-            List<SubjectLabelDTO> subjectLabelDTOS=SubjectLabelDTOConvert.INSTANCE.
+            List<SubjectLabelDTO> subjectLabelDTOS=SubjectLabelDTOConverter.INSTANCE.
                     convertBOToLabelDTOList(resultList);
             return Result.ok(subjectLabelDTOS);
         } catch (Exception e) {

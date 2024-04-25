@@ -7,8 +7,6 @@ import java.util.List;
 /**
  * 题目分类(SubjectCategory)表数据库访问层
  *
- * @author makejava
- * @since 2024-03-27 15:51:50
  */
 public interface SubjectCategoryDao {
 
@@ -75,6 +73,8 @@ public interface SubjectCategoryDao {
      * 查询分类大类
      */
     List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
+
+    Integer querySubjectCount(Long id);
 
 }
 

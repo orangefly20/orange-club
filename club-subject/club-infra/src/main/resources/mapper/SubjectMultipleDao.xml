@@ -23,10 +23,11 @@
         where id = #{id}
     </select>
 
+
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="SubjectMultipleMap">
         select
-          id, subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted
+        id, subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted
         from subject_multiple
         <where>
             <if test="id != null">
@@ -60,8 +61,9 @@
                 and is_deleted = #{isDeleted}
             </if>
         </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
     </select>
+
+
 
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">

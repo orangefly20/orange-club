@@ -1,6 +1,9 @@
 package com.orange.subject.infra.basic.service;
 
 import com.orange.subject.infra.basic.entity.SubjectMultiple;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 
 /**
@@ -51,5 +54,13 @@ public interface SubjectMultipleService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
+
+    /**
+     * 批量插入
+     */
+    void batchInsert(List<SubjectMultiple> subjectMultipleList);
+
+
+    List<SubjectMultiple> queryByCondition(SubjectMultiple subjectJudge);
 
 }

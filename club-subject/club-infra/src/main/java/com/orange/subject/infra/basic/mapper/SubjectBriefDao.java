@@ -9,8 +9,6 @@ import java.util.List;
 /**
  * 简答题(SubjectBrief)表数据库访问层
  *
- * @author makejava
- * @since 2024-04-06 17:15:30
  */
 public interface SubjectBriefDao {
 
@@ -28,7 +26,7 @@ public interface SubjectBriefDao {
      * @param subjectBrief 查询条件
      * @return 对象列表
      */
-    List<SubjectBrief> queryAllByLimit(SubjectBrief subjectBrief);
+    SubjectBrief queryAllByLimit(SubjectBrief subjectBrief);
 
     /**
      * 统计总行数

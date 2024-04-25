@@ -13,19 +13,16 @@ public interface SubjectLabelDomainService {
 
     /**
      * 新增标签
-     * @return
      */
     Boolean add(SubjectLabelBO subjectLabelBO);
 
     /**
      * 更新标签
-     * @return
      */
     Boolean update(SubjectLabelBO subjectLabelBO);
 
     /**
      * 删除标签
-     * @return
      */
     Boolean delete(SubjectLabelBO subjectLabelBO);
 
@@ -33,6 +30,7 @@ public interface SubjectLabelDomainService {
      * 查询分类下标签
      */
     List<SubjectLabelBO> queryLabelByCategoryId(SubjectLabelBO subjectLabelBO);
+
 
 
 }

@@ -24,7 +24,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="SubjectJudgeMap">
         select
-          id, subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted
+        id, subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted
         from subject_judge
         <where>
             <if test="id != null">
@@ -52,8 +52,8 @@
                 and is_deleted = #{isDeleted}
             </if>
         </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
     </select>
+
 
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
@@ -97,7 +97,7 @@
         insert into subject_judge(subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted)
         values
         <foreach collection="entities" item="entity" separator=",">
-        (#{entity.subjectId}, #{entity.isCorrect}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+            (#{entity.subjectId}, #{entity.isCorrect}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
         </foreach>
     </insert>
 
@@ -116,6 +116,7 @@
         update_time = values(update_time),
         is_deleted = values(is_deleted)
     </insert>
+
 
     <!--通过主键修改数据-->
     <update id="update">

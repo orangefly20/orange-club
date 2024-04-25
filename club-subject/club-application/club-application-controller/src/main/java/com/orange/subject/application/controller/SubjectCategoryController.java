@@ -3,7 +3,7 @@ package com.orange.subject.application.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Preconditions;
-import com.orange.subject.application.convert.SubjectCategoryDTOConvert;
+import com.orange.subject.application.convert.SubjectCategoryDTOConverter;
 import com.orange.subject.application.dto.SubjectCategoryDTO;
 import com.orange.subject.common.entity.Result;
 import com.orange.subject.domain.entity.SubjectCategoryBO;
@@ -46,7 +46,7 @@ public class SubjectCategoryController {
             Preconditions.checkArgument(!StringUtils.isBlank(subjectCategoryDTO.getCategoryName()),"分类名不能为空");
             Preconditions.checkNotNull(subjectCategoryDTO.getParentId(),"分类父ID不能为空");
 
-            SubjectCategoryBO subjectCategoryBO= SubjectCategoryDTOConvert.INSTANCE.convertBoToCategory(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO= SubjectCategoryDTOConverter.INSTANCE.convertDtoToCategoryBO(subjectCategoryDTO);
             subjectCategoryDomainService.add(subjectCategoryBO);
             return Result.ok(true);
         } catch (Exception e) {
@@ -62,10 +62,10 @@ public class SubjectCategoryController {
     @PostMapping("/queryPrimaryCategory")
     public Result<List<SubjectCategoryDTO>> queryPrimaryCategory(@RequestBody SubjectCategoryDTO subjectCategoryDTO){
         try {
-            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConvert.INSTANCE.
+            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConverter.INSTANCE.
                     convertDtoToCategoryBO(subjectCategoryDTO);
             List<SubjectCategoryBO> subjectCategoryBOList= subjectCategoryDomainService.queryCategory(subjectCategoryBO);
-            List<SubjectCategoryDTO> subjectCategoryDTOList=SubjectCategoryDTOConvert.INSTANCE.convertBoToCategoryDTOList(subjectCategoryBOList);
+            List<SubjectCategoryDTO> subjectCategoryDTOList=SubjectCategoryDTOConverter.INSTANCE.convertBoToCategoryDTOList(subjectCategoryBOList);
             return Result.ok(subjectCategoryDTOList);
         }catch (Exception e){
             log.error("SubjectCategoryController.queryPrimaryCategory.error:{}",e.getMessage(),e);
@@ -87,10 +87,10 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.queryCategoryByPrimary.dto:{}",JSON.toJSONString(subjectCategoryDTO));
             }
             Preconditions.checkNotNull(subjectCategoryDTO.getParentId(),"分类Id不能为空");
-            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConvert.INSTANCE.
+            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConverter.INSTANCE.
                     convertDtoToCategoryBO(subjectCategoryDTO);
             List<SubjectCategoryBO> subjectCategoryBOList= subjectCategoryDomainService.queryCategory(subjectCategoryBO);
-            List<SubjectCategoryDTO> subjectCategoryDTOList=SubjectCategoryDTOConvert.INSTANCE.convertBoToCategoryDTOList(subjectCategoryBOList);
+            List<SubjectCategoryDTO> subjectCategoryDTOList=SubjectCategoryDTOConverter.INSTANCE.convertBoToCategoryDTOList(subjectCategoryBOList);
             return Result.ok(subjectCategoryDTOList);
         }catch (Exception e){
             log.error("SubjectCategoryController.queryPrimaryCategory.error:{}",e.getMessage(),e);
@@ -112,7 +112,7 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.update.dto:{}",JSON.toJSONString(subjectCategoryDTO));
             }
 
-            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConvert.INSTANCE.
+            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConverter.INSTANCE.
                     convertDtoToCategoryBO(subjectCategoryDTO);
             Boolean result = subjectCategoryDomainService.update(subjectCategoryBO);
 
@@ -137,7 +137,7 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.delete.dto:{}",JSON.toJSONString(subjectCategoryDTO));
             }
 
-            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConvert.INSTANCE.
+            SubjectCategoryBO subjectCategoryBO=SubjectCategoryDTOConverter.INSTANCE.
                     convertDtoToCategoryBO(subjectCategoryDTO);
             Boolean result = subjectCategoryDomainService.delete(subjectCategoryBO);
 

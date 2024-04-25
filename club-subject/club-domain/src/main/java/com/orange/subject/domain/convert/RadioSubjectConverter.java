@@ -12,9 +12,14 @@ import java.util.List;
 @Mapper
 public interface RadioSubjectConverter {
 
-    RadioSubjectConverter INSTANCE= Mappers.getMapper(RadioSubjectConverter.class);
+
+    RadioSubjectConverter INSTANCE = Mappers.getMapper(RadioSubjectConverter.class);
 
     SubjectRadio convertBoToEntity(SubjectAnswerBO subjectAnswerBO);
+
+    List<SubjectAnswerBO> convertEntityToBoList(List<SubjectRadio> subjectRadioList);
+
+
 
 
 }

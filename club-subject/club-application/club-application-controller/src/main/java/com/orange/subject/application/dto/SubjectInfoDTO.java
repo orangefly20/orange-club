@@ -1,6 +1,7 @@
 package com.orange.subject.application.dto;
 
 
+import com.orange.subject.common.entity.PageInfo;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,8 +15,8 @@ import java.util.List;
  * @since 2024-04-06 17:15:04
  */
 @Data
-public class SubjectInfoDTO implements Serializable {
-    private static final long serialVersionUID = 704758617868486062L;
+public class SubjectInfoDTO extends PageInfo implements Serializable {
+
     /**
      * 主键
      */
@@ -44,23 +45,73 @@ public class SubjectInfoDTO implements Serializable {
      * 题目解析
      */
     private String subjectParse;
+
     /**
      * 题目答案
      */
     private String subjectAnswer;
+
     /**
      * 分类id
      */
     private List<Integer> categoryIds;
+
     /**
      * 标签id
      */
     private List<Integer> labelIds;
+
     /**
      * 答案选项
      */
     private List<SubjectAnswerDTO> optionList;
 
+    /**
+     * 标签name
+     */
+    private List<String> labelName;
+
+    private Long categoryId;
+
+    private Long labelId;
+
+    private String keyWord;
+
+    /**
+     * 创建人昵称
+     */
+    private String createUser;
+
+    /**
+     * 创建人头像
+     */
+    private String createUserAvatar;
+
+    /**
+     * 题目数量
+     */
+    private Integer subjectCount;
+
+    /**
+     * 是否被当前用户点赞
+     */
+    private Boolean liked;
+
+    /**
+     * 当前题目点赞的数量
+     */
+    private Integer likedCount;
+
+    /**
+     * 下一题
+     */
+    private Long nextSubjectId;
+
+    /**
+     * 上一题
+     */
+    private Long lastSubjectId;
 
 }
+
 

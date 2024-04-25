@@ -48,4 +48,7 @@ public interface SubjectCategoryService {
      * 查询分类大类
      */
     List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
+
+    Integer querySubjectCount(Long id);
+
 }

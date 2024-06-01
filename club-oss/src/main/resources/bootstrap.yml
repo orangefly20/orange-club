@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: club-oss
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: 121.199.58.46:8848
+      config:
+        prefix: club-oss
+        group: DEFAULT_GROUP
+        namespace:
+        file-extension: yaml

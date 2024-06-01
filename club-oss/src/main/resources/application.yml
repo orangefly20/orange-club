@@ -1,0 +1,6 @@
+server:
+  port: 4000
+minio:
+  url: http://121.199.58.46:9000
+  accessKey: orangefly
+  secretKey: orangefly

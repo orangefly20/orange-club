@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     username: root
-    password: gnj4OKx0IOORzH3tX0IdloaJVzsLkTti7OZg7K4jST8MKLULiZUUsPLFKutoc/1mi/QwKsJSKcBh4kNtgaI3Aw==
+    password: gnj4OKx0IOORzH3tX0IdloaJVzsLkTti7OZg7K4jST8MKLULiZUUsPLFKutoc/1mi/QwKsJSKcBh4kNtgaI3Aw==  # orangefly
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://121.199.58.46:3306/orange-club?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=true
     type: com.alibaba.druid.pool.DruidDataSource
